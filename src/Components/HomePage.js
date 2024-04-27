@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <section id='heroBanner'>
       <div className='left-container'>
-        <h1>Welcome to Food Recipi app</h1>
+        <h1>Welcome to Food Recipe app</h1>
         <p>Check Out the most recipe of food items</p>
         <button className='btn'>Explore Recipe</button>
       </div>

@@ -5,12 +5,12 @@ import Navbar from './Components/Navbar';
 import SearchBar from './Components/SearchBar';
 import axios from 'axios';
 import RecipeItem from './Components/RecipeItem';
-import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Change here
 import RecipiDetail from './Components/RecipiDetail';
 
 function App() {
   const [recipes, setRecipes] = useState([]);
-  const[search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
 
   const api = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
@@ -33,22 +33,20 @@ function App() {
     e.preventDefault();
     searchRecipe();
   };
+
   const handleChange=(e)=>{
-    setSearch(e.target.value)
-}
+    setSearch(e.target.value);
+  };
 
   return (
-    <Router>
-    <>
+    <Router> 
       <Navbar />
-      <switch>
       <Routes>
-        <Route exact path="/" Component={<HomePage recipes={recipes} />}/>
-        <Route path="/recipe/:id" Component={<RecipiDetail/>}/>
-        </Routes>
-      </switch>
-      
-      <SearchBar handleSubmit={handleSubmit} 
+      <Route path="/" element={ <HomePage recipes={recipes} />} /> 
+      <Route path="/recipe/:id" component={RecipiDetail} /> 
+      </Routes>
+      <SearchBar 
+        handleSubmit={handleSubmit} 
         search={search}
         handleChange={handleChange} 
       />
@@ -64,8 +62,7 @@ function App() {
           />
         ))}
       </div>
-    </>
-    </Router>
+    </Router> 
   );
 }
 

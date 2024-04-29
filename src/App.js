@@ -5,6 +5,8 @@ import Navbar from './Components/Navbar';
 import SearchBar from './Components/SearchBar';
 import axios from 'axios';
 import RecipeItem from './Components/RecipeItem';
+import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
+import RecipiDetail from './Components/RecipiDetail';
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -36,12 +38,19 @@ function App() {
 }
 
   return (
+    <Router>
     <>
       <Navbar />
-      <HomePage recipes={recipes} />
+      <switch>
+      <Routes>
+        <Route exact path="/" Component={<HomePage recipes={recipes} />}/>
+        <Route path="/recipe/:id" Component={<RecipiDetail/>}/>
+        </Routes>
+      </switch>
+      
       <SearchBar handleSubmit={handleSubmit} 
         search={search}
-        handleChange={handleChange}
+        handleChange={handleChange} 
       />
       <div className='d-flex justify-content-between flex-wrap recipe-sec'>
         {recipes.map((recipe) => (
@@ -56,6 +65,7 @@ function App() {
         ))}
       </div>
     </>
+    </Router>
   );
 }
 

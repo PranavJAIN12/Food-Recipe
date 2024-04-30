@@ -6,7 +6,8 @@ import SearchBar from './Components/SearchBar';
 import axios from 'axios';
 import RecipeItem from './Components/RecipeItem';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Change here
-import RecipiDetail from './Components/RecipiDetail';
+import RecipeDetail from './Components/RecipeDetail';
+
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -43,7 +44,7 @@ function App() {
       <Navbar />
       <Routes>
       <Route path="/" element={ <HomePage recipes={recipes} />} /> 
-      <Route path="/recipe/:id" component={RecipiDetail} /> 
+      <Route path="/recipe/:id" element={<RecipeDetail/>} /> 
       </Routes>
       <SearchBar 
         handleSubmit={handleSubmit} 

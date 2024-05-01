@@ -8,7 +8,7 @@ export default function Navbar() {
         <h1 className='navbar-head'>FoodJunction</h1>
             <div className='desktopMenu'>
                 <Link to='/' className='desktopMenuListItem'>Home</Link>
-                <Link to='/excercise' className='desktopMenuListItem'>food</Link>
+                <Link to='/' className='desktopMenuListItem'>food</Link>
                 <Link to='/about' className='desktopMenuListItem'>About</Link>
                 
                 
